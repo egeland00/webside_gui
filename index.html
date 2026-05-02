@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ørjan Egeland — Cybersecurity &amp; Network Enthusiast. Portfolio, projects, and certifications.">
+  <link rel="icon" type="image/x-png" href="/res/logo.png">
+  <title>Ørjan Egeland — egeland.dev</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/d5effce557.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <span class="acc">[</span>egeland<span class="acc">]</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#about">about</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#certs">certs</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+      <a href="#certs">certs</a>
+      <a href="#contact">contact</a>
+    </div>
+  </nav>
+
+  <!-- CANVAS BACKGROUND -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Introduction">
+    <div class="hero-text">
+      <p class="hero-eyebrow">// cybersecurity &amp; networks</p>
+      <h1 class="hero-name">
+        <span class="glitch" data-text="Ørjan Egeland">Ørjan Egeland</span>
+      </h1>
+      <p class="hero-role">
+        <span id="typed-text"></span><span class="cursor-bar" aria-hidden="true">|</span>
+      </p>
+      <p class="hero-bio">
+        I poke at networks, break things ethically, and automate everything
+        that sits still long enough. Solving puzzles on TryHackMe as
+        <a href="https://tryhackme.com/p/0xACC3SS" target="_blank" rel="noopener">0xACC3SS</a>.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="mock-terminal" id="mock-terminal">
+        <div class="mt-bar">
+          <div class="mt-dots">
+            <span class="mt-dot close"></span>
+            <span class="mt-dot minimize"></span>
+            <span class="mt-dot maximize"></span>
+          </div>
+          <span class="mt-title">visitor@egeland.dev — zsh</span>
+        </div>
+        <div class="mt-body" id="mt-body"></div>
+      </div>
+      <div class="hero-glow"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-num">// 01</span>
+        <h2>about_me</h2>
+      </header>
+      <div class="about-layout">
+        <div class="about-bio">
+          <p>
+            Hey — I'm <strong>Ørjan</strong>, a cybersecurity and network enthusiast.
+            I'm currently studying Cyber Security at Gokstad Akademiet and hold
+            an MSc in Computing from the University of Roehampton (2023).
+            Genuine passion for everything involving packets, ports,
+            and things that probably shouldn't be poked at.
+          </p>
+          <p>
+            My world sits at the intersection of <span class="hl">network security</span>,
+            <span class="hl">ethical hacking</span>, and
+            <span class="hl">Python automation</span>. I spend a fair amount of time
+            on TryHackMe, working through challenges that range from beginner
+            to "why is this even a thing."
+          </p>
+          <p>
+            I wear the "scriptkiddie" label proudly — not as an insult, but as a
+            mindset: use the tools that exist, understand how they work,
+            and build new ones when they don't.
+          </p>
+        </div>
+        <div class="about-facts">
+          <div class="fact-card" data-reveal>
+            <div class="fact-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div>
+              <div class="fact-title">Cyber Security</div>
+              <div class="fact-sub">Gokstad Akademiet</div>
+            </div>
+          </div>
+          <div class="fact-card" data-reveal>
+            <div class="fact-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div>
+              <div class="fact-title">MSc Computing</div>
+              <div class="fact-sub">University of Roehampton · 2023</div>
+            </div>
+          </div>
+          <div class="fact-card" data-reveal>
+            <div class="fact-icon"><i class="fab fa-python"></i></div>
+            <div>
+              <div class="fact-title">Python</div>
+              <div class="fact-sub">Primary scripting language</div>
+            </div>
+          </div>
+          <div class="fact-card" data-reveal>
+            <div class="fact-icon"><i class="fas fa-shield-halved"></i></div>
+            <div>
+              <div class="fact-title">5 Certifications</div>
+              <div class="fact-sub">Security, Cloud &amp; IT Management</div>
+            </div>
+          </div>
+          <div class="fact-card" data-reveal>
+            <div class="fact-icon"><i class="fas fa-terminal"></i></div>
+            <div>
+              <div class="fact-title">0xACC3SS</div>
+              <div class="fact-sub">TryHackMe handle</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-num">// 02</span>
+        <h2>skills</h2>
+      </header>
+      <div class="skills-grid">
+        <div class="skill-box" data-reveal>
+          <div class="skill-box-hd">
+            <i class="fas fa-crosshairs"></i>
+            <span>Penetration Testing</span>
+          </div>
+          <div class="badges">
+            <span class="badge">Nmap</span>
+            <span class="badge">Metasploit</span>
+            <span class="badge">Burp Suite</span>
+            <span class="badge">Gobuster</span>
+            <span class="badge">Hydra</span>
+            <span class="badge">SQLmap</span>
+          </div>
+        </div>
+        <div class="skill-box" data-reveal>
+          <div class="skill-box-hd">
+            <i class="fas fa-network-wired"></i>
+            <span>Networking</span>
+          </div>
+          <div class="badges">
+            <span class="badge">TCP/IP</span>
+            <span class="badge">DNS</span>
+            <span class="badge">Wireshark</span>
+            <span class="badge">Firewalls</span>
+            <span class="badge">VPN</span>
+            <span class="badge">Subnetting</span>
+          </div>
+        </div>
+        <div class="skill-box" data-reveal>
+          <div class="skill-box-hd">
+            <i class="fas fa-code"></i>
+            <span>Languages</span>
+          </div>
+          <div class="badges">
+            <span class="badge badge-purple">Python</span>
+            <span class="badge badge-purple">Bash</span>
+            <span class="badge badge-purple">JavaScript</span>
+            <span class="badge badge-purple">PowerShell</span>
+          </div>
+        </div>
+        <div class="skill-box" data-reveal>
+          <div class="skill-box-hd">
+            <i class="fas fa-cloud"></i>
+            <span>Cloud &amp; Tools</span>
+          </div>
+          <div class="badges">
+            <span class="badge badge-blue">Azure</span>
+            <span class="badge badge-blue">Git</span>
+            <span class="badge badge-blue">Linux</span>
+            <span class="badge badge-blue">Kali</span>
+            <span class="badge badge-blue">Docker</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-num">// 03</span>
+        <h2>projects</h2>
+      </header>
+      <div class="project-grid">
+        <article class="project-card" data-reveal>
+          <div class="pc-top">
+            <span class="pc-icon"><i class="fas fa-magnifying-glass"></i></span>
+            <a href="https://github.com/egeland00/NMAP-scanner" target="_blank" rel="noopener" class="pc-gh" aria-label="View on GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <h3 class="pc-name">NMAP-scanner</h3>
+          <p class="pc-desc">Port scanner script built with Python. Wraps Nmap for quick service discovery and port enumeration on target hosts.</p>
+          <div class="pc-tags">
+            <span class="ptag">Python</span>
+            <span class="ptag">Nmap</span>
+            <span class="ptag">Networking</span>
+          </div>
+        </article>
+        <article class="project-card" data-reveal>
+          <div class="pc-top">
+            <span class="pc-icon"><i class="fas fa-lock"></i></span>
+            <a href="https://github.com/egeland00/Encrypt-Message" target="_blank" rel="noopener" class="pc-gh" aria-label="View on GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <h3 class="pc-name">Encrypt-Message</h3>
+          <p class="pc-desc">Message encryption tool built with Python. Keeps your secrets secret — because plaintext is basically a crime.</p>
+          <div class="pc-tags">
+            <span class="ptag">Python</span>
+            <span class="ptag">Cryptography</span>
+            <span class="ptag">Security</span>
+          </div>
+        </article>
+        <article class="project-card" data-reveal>
+          <div class="pc-top">
+            <span class="pc-icon"><i class="fas fa-key"></i></span>
+            <a href="https://github.com/egeland00/Password-Generator" target="_blank" rel="noopener" class="pc-gh" aria-label="View on GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <h3 class="pc-name">Password-Generator</h3>
+          <p class="pc-desc">Password generator built with Python. Because "password123" stopped being a valid security strategy in 1995.</p>
+          <div class="pc-tags">
+            <span class="ptag">Python</span>
+            <span class="ptag">Security</span>
+            <span class="ptag">Utility</span>
+          </div>
+        </article>
+      </div>
+      <div class="projects-more">
+        <a href="https://github.com/egeland00" target="_blank" rel="noopener" class="btn btn-outline">
+          <i class="fab fa-github"></i>&nbsp; View more on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-num">// 04</span>
+        <h2>certifications</h2>
+      </header>
+      <div class="certs-list">
+        <a href="https://www.credly.com/badges/de76d635-d476-46b4-bd77-20bd9ab95c9a/public_url"
+           target="_blank" rel="noopener" class="cert-row" data-reveal>
+          <div class="cert-ico"><i class="fas fa-shield-halved"></i></div>
+          <div class="cert-info">
+            <span class="cert-name">Google Cybersecurity Professional</span>
+            <span class="cert-meta">Google · May 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt cert-ext" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.credly.com/badges/3b4f52d5-78f4-432d-8942-58d202f44cfc/public_url"
+           target="_blank" rel="noopener" class="cert-row" data-reveal>
+          <div class="cert-ico"><i class="fas fa-certificate"></i></div>
+          <div class="cert-info">
+            <span class="cert-name">CC — Certified in Cybersecurity</span>
+            <span class="cert-meta">(ISC)² · Feb 2024</span>
+          </div>
+          <i class="fas fa-external-link-alt cert-ext" aria-hidden="true"></i>
+        </a>
+        <a href="https://learn.microsoft.com/en-us/users/orjan-egeland/credentials/8247a981e1296f3d"
+           target="_blank" rel="noopener" class="cert-row" data-reveal>
+          <div class="cert-ico"><i class="fab fa-microsoft"></i></div>
+          <div class="cert-info">
+            <span class="cert-name">Azure Fundamentals AZ-900</span>
+            <span class="cert-meta">Microsoft · Feb 2024</span>
+          </div>
+          <i class="fas fa-external-link-alt cert-ext" aria-hidden="true"></i>
+        </a>
+        <div class="cert-row" data-reveal>
+          <div class="cert-ico"><i class="fas fa-user-secret"></i></div>
+          <div class="cert-info">
+            <span class="cert-name">Ethical Hacker</span>
+            <span class="cert-meta">Cisco · Nov 2024</span>
+          </div>
+        </div>
+        <div class="cert-row" data-reveal>
+          <div class="cert-ico"><i class="fas fa-gears"></i></div>
+          <div class="cert-info">
+            <span class="cert-name">ITIL v4 Foundation</span>
+            <span class="cert-meta">AXELOS · Nov 2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-num">// 05</span>
+        <h2>contact</h2>
+      </header>
+      <p class="contact-intro">
+        Found something interesting? Want to collaborate?<br>
+        I'm always up for talking security, networking, or anything
+        that involves breaking things responsibly.
+      </p>
+      <div class="social-list">
+        <a href="mailto:orjan@egeland.dev" class="social-row">
+          <i class="fas fa-envelope"></i>
+          <span>orjan@egeland.dev</span>
+        </a>
+        <a href="https://github.com/egeland00" target="_blank" rel="noopener" class="social-row">
+          <i class="fab fa-github"></i>
+          <span>github.com/egeland00</span>
+        </a>
+        <a href="https://www.linkedin.com/in/orjan-egeland" target="_blank" rel="noopener" class="social-row">
+          <i class="fab fa-linkedin"></i>
+          <span>linkedin.com/in/orjan-egeland</span>
+        </a>
+        <a href="https://tryhackme.com/p/0xACC3SS" target="_blank" rel="noopener" class="social-row">
+          <i class="fas fa-flag"></i>
+          <span>tryhackme.com/p/0xACC3SS</span>
+        </a>
+        <a href="https://medium.com/@orjan-egeland" target="_blank" rel="noopener" class="social-row">
+          <i class="fab fa-medium"></i>
+          <span>medium.com/@orjan-egeland</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-wrap">
+      <span class="footer-name">
+        <span class="acc">$</span>&nbsp;Ørjan Egeland · egeland.dev
+      </span>
+    </div>
+  </footer>
+
+  <script src="/assets/script.js"></script>
+</body>
+</html>
