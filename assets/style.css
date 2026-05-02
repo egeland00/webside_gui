@@ -278,6 +278,71 @@ nav, section, footer { position: relative; z-index: 1; }
   margin-bottom: 2rem;
 }
 
+.btn-terminal {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+.btn-terminal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: translateX(-101%);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+.btn-terminal:hover::before { transform: translateX(0); }
+.btn-terminal:hover {
+  color: var(--bg);
+  box-shadow: 0 0 28px rgba(0, 255, 179, 0.35), 0 0 8px rgba(0, 255, 179, 0.2);
+}
+.btn-terminal > * { position: relative; z-index: 1; }
+.btn-term-prompt {
+  font-weight: 700;
+  transition: color 0.28s;
+}
+.btn-terminal:hover .btn-term-prompt { color: var(--bg); }
+
+/* NAV TERMINAL BUTTON */
+.nav-terminal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--r);
+  text-decoration: none;
+  margin-left: 1.25rem;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.nav-terminal-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 0 18px rgba(0, 255, 179, 0.3);
+}
+
+/* MOBILE NAV TERMINAL LINK */
+.mobile-terminal-link {
+  color: var(--accent) !important;
+  border-top: 1px solid var(--border);
+  margin-top: 0.5rem;
+  padding-top: 0.75rem !important;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+
 /* BUTTONS */
 .btn {
   display: inline-flex;
@@ -765,6 +830,7 @@ footer {
   }
   .hero-bio { max-width: 100%; }
   .hero-cta { justify-content: center; }
+  .btn-terminal { align-self: center; }
   .hero-visual { order: -1; }
   .mock-terminal { max-width: 520px; width: 100%; }
   .hero-glow { display: none; }
@@ -777,6 +843,7 @@ footer {
   .project-grid { grid-template-columns: 1fr; }
 
   .nav-links { display: none; }
+  .nav-terminal-btn { display: none; }
   .hamburger { display: flex; }
 }
 
