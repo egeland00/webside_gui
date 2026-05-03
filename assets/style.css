@@ -796,6 +796,52 @@ footer {
 }
 
 /* ================================================================
+   EASTER EGG: KONAMI OVERLAY
+   ================================================================ */
+#konami-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 12, 22, 0.97);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+#konami-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+#konami-terminal {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  color: var(--accent);
+  max-width: 560px;
+  width: 90%;
+  padding: 2rem 2.25rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--r);
+  box-shadow: 0 0 60px rgba(0,255,179,0.15), 0 0 120px rgba(0,255,179,0.06), inset 0 0 40px rgba(0,255,179,0.03);
+}
+.kt-line { line-height: 2; white-space: pre; }
+.kt-line.dim { color: var(--dim); }
+.kt-line.success {
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-shadow: 0 0 24px rgba(0,255,179,0.7);
+  animation: kt-pulse 1s ease infinite alternate;
+}
+.kt-line.flag { color: var(--yellow); }
+@keyframes kt-pulse {
+  from { text-shadow: 0 0 12px rgba(0,255,179,0.5); }
+  to   { text-shadow: 0 0 32px rgba(0,255,179,0.9), 0 0 60px rgba(0,255,179,0.4); }
+}
+
+/* ================================================================
    KEYFRAMES
    ================================================================ */
 @keyframes blink {

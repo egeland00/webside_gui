@@ -1,0 +1,11 @@
+Good recon. You read robots.txt — that's the first rule of the game.
+
+flag{r0b0ts_txt_1s_n0t_4_s3cur1ty_m3ch4n1sm}
+
+Lesson: never put secrets in robots.txt. It's a roadmap, not a lock.
+
+If you find any *actual* vulnerabilities in my stuff, I'd genuinely love to know.
+→ orjan@egeland.dev
+→ https://terminal.egeland.dev
+
+— Ørjan

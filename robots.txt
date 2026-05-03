@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /flag.txt
+Disallow: /admin/
+Disallow: /.env
+Disallow: /backup.zip
+Disallow: /db_dump.sql
+
+# Nice recon. Keep going.

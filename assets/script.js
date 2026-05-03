@@ -235,3 +235,80 @@
     });
   });
 })();
+
+
+/* === EASTER EGG: CONSOLE === */
+(function initConsoleEgg() {
+  const b = 'color:#00FFB3;font-family:monospace;font-size:11px;line-height:1.5;';
+  const t = 'color:#C0CAF5;font-size:13px;';
+  const l = 'color:#00D4FF;font-size:13px;';
+  const f = 'color:#E0AF68;font-size:12px;font-family:monospace;';
+
+  console.log('%c' + [
+    '',
+    ' ██████╗  ██████╗     ██╗  ██╗ █████╗  ██████╗██╗  ██╗',
+    '██╔════╝ ██╔═══██╗    ██║  ██║██╔══██╗██╔════╝██║ ██╔╝',
+    '██║  ███╗██║   ██║    ███████║███████║██║     █████╔╝ ',
+    '██║   ██║██║   ██║    ██╔══██║██╔══██║██║     ██╔═██╗ ',
+    '╚██████╔╝╚██████╔╝    ██║  ██║██║  ██║╚██████╗██║  ██╗',
+    ' ╚═════╝  ╚═════╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝',
+    '',
+  ].join('\n'), b);
+  console.log('%c⚡ Hey there, hacker.', 'color:#00FFB3;font-size:18px;font-weight:bold;');
+  console.log('%cYou opened DevTools. You\'re exactly who I want to talk to.', t);
+  console.log('%c→ orjan@egeland.dev', l);
+  console.log('%c→ https://terminal.egeland.dev', l);
+  console.log('%cflag{c0ns0l3_h4ck3r_d3t3ct3d_lol}', f);
+})();
+
+
+/* === EASTER EGG: KONAMI CODE === */
+(function initKonami() {
+  const SEQ = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown',
+               'ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  let idx = 0;
+
+  const overlay = document.getElementById('konami-overlay');
+  const output  = document.getElementById('kt-output');
+  if (!overlay || !output) return;
+
+  const lines = [
+    { text: '> initiating breach sequence...',       cls: 'dim',     delay: 0    },
+    { text: '> scanning target: egeland.dev',        cls: 'dim',     delay: 420  },
+    { text: '> 22/tcp  open  ssh     OpenSSH 8.9p1', cls: '',        delay: 860  },
+    { text: '> 80/tcp  open  http    nginx 1.18.0',  cls: '',        delay: 1100 },
+    { text: '> 443/tcp open  https   nginx 1.18.0',  cls: '',        delay: 1340 },
+    { text: '> CVEs found: 0',                       cls: 'dim',     delay: 1800 },
+    { text: '> verifying konami sequence...',        cls: 'dim',     delay: 2300 },
+    { text: '> ↑↑↓↓←→←→BA : ✓ confirmed',           cls: '',        delay: 2800 },
+    { text: '',                                      cls: '',        delay: 3100 },
+    { text: '[ ACCESS GRANTED ]',                    cls: 'success', delay: 3300 },
+    { text: '',                                      cls: '',        delay: 3700 },
+    { text: 'flag{k0nam1_c0d3_4cc3ss_gr4nt3d}',      cls: 'flag',    delay: 3900 },
+    { text: '',                                      cls: '',        delay: 4300 },
+    { text: '— press any key or click to close —',   cls: 'dim',     delay: 4500 },
+  ];
+
+  function trigger() {
+    overlay.classList.add('active');
+    output.innerHTML = '';
+    lines.forEach(({ text, cls, delay }) => {
+      setTimeout(() => {
+        const div = document.createElement('div');
+        div.className = `kt-line ${cls}`;
+        div.textContent = text;
+        output.appendChild(div);
+      }, delay);
+    });
+  }
+
+  function dismiss() { overlay.classList.remove('active'); idx = 0; }
+
+  document.addEventListener('keydown', e => {
+    if (overlay.classList.contains('active')) { dismiss(); return; }
+    idx = e.key === SEQ[idx] ? idx + 1 : (e.key === SEQ[0] ? 1 : 0);
+    if (idx === SEQ.length) { idx = 0; trigger(); }
+  });
+
+  overlay.addEventListener('click', dismiss);
+})();
